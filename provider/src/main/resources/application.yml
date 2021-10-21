@@ -3,6 +3,8 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: provider
   datasource:
     url: jdbc:postgresql://localhost:5432/provider
     driver-class-name: org.postgresql.Driver
@@ -15,4 +17,10 @@ spring:
     properties:
         hibernate:
           dialect: org.hibernate.dialect.PostgreSQL95Dialect
-          
+         
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

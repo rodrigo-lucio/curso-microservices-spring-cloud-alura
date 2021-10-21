@@ -1,5 +1,6 @@
 package br.com.alura.microservices.shop.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,11 @@ import br.com.alura.microservices.shop.dto.ProviderInfoDTO;
 @Service
 public class BuyService {
 
+	@Autowired
+	private RestTemplate client;
+	
 	public void makeBuy(BuyDTO buy) {
-		RestTemplate client = new RestTemplate();
-		ResponseEntity<ProviderInfoDTO> exchange = client.exchange("http://fornecedor/info/" + buy.getAdress().getState(),
+		ResponseEntity<ProviderInfoDTO> exchange = client.exchange("http://provider/info/" + buy.getAdress().getState(),
 				HttpMethod.GET, null, ProviderInfoDTO.class);
 		System.out.println(exchange);
 	}
