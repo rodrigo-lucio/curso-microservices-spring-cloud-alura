@@ -1,4 +1,4 @@
-package br.com.alura.micoservices.provider.model;
+package br.com.alura.microservices.provider.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
