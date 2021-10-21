@@ -1,13 +1,13 @@
-package br.com.alura.microservices.loja;
+package br.com.alura.microservices.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LojaApplication {
+public class ShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LojaApplication.class, args);
+		SpringApplication.run(ShopApplication.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.alura.microservices.loja.controller;
+package br.com.alura.microservices.shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.microservices.loja.controller.dto.BuyDTO;
-import br.com.alura.microservices.loja.service.BuyService;
+import br.com.alura.microservices.shop.controller.dto.BuyDTO;
+import br.com.alura.microservices.shop.service.BuyService;
 
 @RestController
 @RequestMapping("/buy")

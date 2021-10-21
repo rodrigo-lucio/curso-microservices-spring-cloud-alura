@@ -8,11 +8,11 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.alura.microservices.loja</groupId>
-	<artifactId>loja</artifactId>
+	<groupId>br.com.alura.microservices.shop</groupId>
+	<artifactId>shop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>loja</name>
-	<description>Microsserviço Loja</description>
+	<name>Shop</name>
+	<description>Shop Microsservice</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

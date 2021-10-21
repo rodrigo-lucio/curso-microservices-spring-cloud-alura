@@ -1,10 +1,10 @@
-package br.com.alura.microservices.loja;
+package br.com.alura.microservices.shop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LojaApplicationTests {
+class ShopApplicationTests {
 
 	@Test
 	void contextLoads() {
