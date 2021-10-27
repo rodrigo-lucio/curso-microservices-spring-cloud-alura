@@ -17,8 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-public class Order {
+public class Orders {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +29,7 @@ public class Order {
 	private OrderStatus status;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "orderId")
-	private List<OrderItem> items;
+	@JoinColumn(name = "orders_Id")
+	private List<OrdersItem> items;
 
-	public Order(List<OrderItem> items) {
-		this.items = items;
-		this.status = OrderStatus.RECEIVED;
-	}
 }

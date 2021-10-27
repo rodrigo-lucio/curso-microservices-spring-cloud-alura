@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class OrderItem {
+public class OrdersItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class OrderItem {
 	
 	private Integer amount;
 	
-	@ManyToOne @JoinColumn(name = "productId")
+	@ManyToOne @JoinColumn(name = "product_id")
 	private Product product;
 
 }

@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.alura.microservices.provider.dto.OrderItemDTO;
-import br.com.alura.microservices.provider.model.Order;
-import br.com.alura.microservices.provider.model.OrderItem;
+import br.com.alura.microservices.provider.model.Orders;
+import br.com.alura.microservices.provider.model.OrdersItem;
+import br.com.alura.microservices.provider.model.OrderStatus;
 import br.com.alura.microservices.provider.model.Product;
 import br.com.alura.microservices.provider.repository.OrderRepository;
 import br.com.alura.microservices.provider.repository.ProductRepository;
@@ -22,23 +23,25 @@ public class OrderService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	public Order makeOrder(List<OrderItemDTO> itens) {
+	public Orders makeOrder(List<OrderItemDTO> itens) {
 		
 		if(itens == null) {
 			return null;
 		}
 		
-		List<OrderItem> orderItems = toOrderItem(itens);
-		Order order = new Order(orderItems);
+		List<OrdersItem> orderItems = toOrderItem(itens);
+		Orders order = new Orders();
+		order.setItems(orderItems);
+		order.setStatus(OrderStatus.RECEIVED);
 		order.setPreparationTime(itens.size());
 		return orderRepository.save(order);
 	}
 	
-	public Order getOrderById(Long id) {
-		return this.orderRepository.findById(id).orElse(new Order());
+	public Orders getOrderById(Long id) {
+		return this.orderRepository.findById(id).orElse(new Orders());
 	}
 
-	private List<OrderItem> toOrderItem(List<OrderItemDTO> itens) {
+	private List<OrdersItem> toOrderItem(List<OrderItemDTO> itens) {
 		
 		List<Long> productsIds = itens
 				.stream()
@@ -47,7 +50,7 @@ public class OrderService {
 		
 		List<Product> orderProducts = productRepository.findByIdIn(productsIds);
 		
-		List<OrderItem> orderItems = itens
+		List<OrdersItem> orderItems = itens
 			.stream()
 			.map(item -> {
 				Product product = orderProducts
@@ -55,7 +58,7 @@ public class OrderService {
 						.filter(p -> p.getId() == item.getId())
 						.findFirst().get();
 				
-				OrderItem orderItem = new OrderItem();
+				OrdersItem orderItem = new OrdersItem();
 				orderItem.setProduct(product);
 				orderItem.setAmount(item.getAmount());
 				return orderItem;
