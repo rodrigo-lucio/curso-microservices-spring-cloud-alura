@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -29,7 +28,7 @@ public class Orders {
 	private OrderStatus status;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "orders_Id")
+	@JoinColumn(name = "orders_id")
 	private List<OrdersItem> items;
 
 }

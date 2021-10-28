@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.microservices.provider.dto.OrderItemDTO;
 import br.com.alura.microservices.provider.model.Orders;
@@ -23,6 +24,11 @@ public class OrderService {
 	@Autowired
 	private ProductRepository productRepository;
 
+	public Orders getOrderById(Long id) {
+		return this.orderRepository.findById(id).orElse(new Orders());
+	}
+	
+	@Transactional
 	public Orders makeOrder(List<OrderItemDTO> itens) {
 		
 		if(itens == null) {
@@ -35,10 +41,6 @@ public class OrderService {
 		order.setStatus(OrderStatus.RECEIVED);
 		order.setPreparationTime(itens.size());
 		return orderRepository.save(order);
-	}
-	
-	public Orders getOrderById(Long id) {
-		return this.orderRepository.findById(id).orElse(new Orders());
 	}
 
 	private List<OrdersItem> toOrderItem(List<OrderItemDTO> itens) {
