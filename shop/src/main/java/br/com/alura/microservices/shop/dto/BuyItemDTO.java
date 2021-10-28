@@ -1,4 +1,4 @@
-package br.com.alura.microservices.shop.controller.dto;
+package br.com.alura.microservices.shop.dto;
 
 import lombok.Data;
 
