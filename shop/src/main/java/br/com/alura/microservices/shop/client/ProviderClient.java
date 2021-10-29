@@ -22,7 +22,7 @@ public interface ProviderClient {
 	@GetMapping("/info/{state}")
 	ProviderInfo getInfoByState(@PathVariable String state);
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/order")
+	@PostMapping("/order")
 	OrderInfoDTO makeOrder(@RequestBody List<BuyItemDTO> products); 
 	
 }
