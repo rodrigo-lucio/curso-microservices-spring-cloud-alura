@@ -29,7 +29,9 @@ public class BuyService {
 		savedBuy.setOrderId(order.getId());
 		savedBuy.setPreparationTime(order.getPreparationTime());
 		savedBuy.setAdress(buy.getAdress().toString());
-
+		log.info("Saved buy: {}", savedBuy);
+		log.info("Buy DTO:  {}", buy);
+		
 		return savedBuy;
 	}
 

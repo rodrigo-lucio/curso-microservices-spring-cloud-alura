@@ -1,8 +1,10 @@
 package br.com.alura.microservices.shop.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
+@ToString
 public class Buy {
 	
 	private Long id;
