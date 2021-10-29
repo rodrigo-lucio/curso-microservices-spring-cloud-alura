@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.alura.microservices.provider.dto.OrderItemDTO;
 import br.com.alura.microservices.provider.model.Orders;
 import br.com.alura.microservices.provider.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("order")
+@Slf4j
 public class OrderController {
 
 	@Autowired
@@ -24,6 +26,7 @@ public class OrderController {
 	
 	@PostMapping
 	public Orders makeOrder(@RequestBody List<OrderItemDTO> products) {
+		log.info("Make order");
 		return orderService.makeOrder(products);
 	}
 	
