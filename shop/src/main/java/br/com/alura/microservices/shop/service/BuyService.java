@@ -18,7 +18,6 @@ public class BuyService {
 	private ProviderClient providerClient;
 
 	public Buy makeBuy(BuyDTO buy) {
-		
 		ProviderInfo infoByState = providerClient.getInfoByState(buy.getAdress().getState());
 		log.info("Get provider info by state {}", infoByState.getAdress());
 		
