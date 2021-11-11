@@ -6,5 +6,6 @@ import lombok.Data;
 public class ProviderInfo {
 
 	private String adress;
+	private String state;
 	
 }
