@@ -11,3 +11,5 @@ spring:
     properties:
         hibernate:
           dialect: org.hibernate.dialect.PostgreSQL95Dialect
+  jackson:
+    default-property-inclusion: NON_NULL
