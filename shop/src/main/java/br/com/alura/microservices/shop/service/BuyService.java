@@ -24,7 +24,8 @@ public class BuyService {
 	@Autowired
 	private BuyRepository buyService;
 
-	@HystrixCommand(fallbackMethod = "getByIdyFallback", threadPoolKey = "getByIdThreadPool")
+	//threadPoolKey=caso o makeBuy fique com as 10 threads cheias (padrao do histryx, ele nao bloqueia a execuçcao do get by id
+	@HystrixCommand(fallbackMethod = "getByIdyFallback", threadPoolKey = "makeBuyThreadPool") 
 	public Buy getById(Long id) {	
 		return buyService.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
 	}
