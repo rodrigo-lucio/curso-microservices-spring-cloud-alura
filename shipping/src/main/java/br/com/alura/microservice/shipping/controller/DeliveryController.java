@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.alura.microservice.shipping.dto.DeliveryDTO;
 import br.com.alura.microservice.shipping.dto.VoucherDTO;
 import br.com.alura.microservice.shipping.model.Delivery;
-import br.com.alura.microservice.shipping.service.EntregaService;
+import br.com.alura.microservice.shipping.service.DeliveryService;
 
 @RestController
 @RequestMapping("/delivery")
 public class DeliveryController {
 	
 	@Autowired
-	private EntregaService deliveryServive;
+	private DeliveryService deliveryServive;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public VoucherDTO reservaEntrega(@RequestBody DeliveryDTO orderDto) {
+	public VoucherDTO bookDelivery(@RequestBody DeliveryDTO orderDto) {
 		return deliveryServive.bookDelivery(orderDto);
 	}
 }

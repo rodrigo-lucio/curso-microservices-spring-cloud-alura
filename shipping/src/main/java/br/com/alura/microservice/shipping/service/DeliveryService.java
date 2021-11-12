@@ -9,7 +9,7 @@ import br.com.alura.microservice.shipping.model.Delivery;
 import br.com.alura.microservice.shipping.repository.DeliveryRepository;
 
 @Service
-public class EntregaService {
+public class DeliveryService {
 	
 	@Autowired
 	private DeliveryRepository repository;
