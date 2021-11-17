@@ -1,5 +1,7 @@
 package br.com.alura.microservices.shop.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,5 +22,7 @@ public class Buy {
 	private Integer preparationTime;
 	private String adress;
 	private String state;
+	private Long voucher;
+	private LocalDate estimatedDeliveryDate;
 	
 }
