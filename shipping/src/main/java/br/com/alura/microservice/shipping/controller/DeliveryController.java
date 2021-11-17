@@ -16,10 +16,10 @@ import br.com.alura.microservice.shipping.service.DeliveryService;
 public class DeliveryController {
 	
 	@Autowired
-	private DeliveryService deliveryServive;
+	private DeliveryService deliveryService;
 
 	@RequestMapping(method = RequestMethod.POST)
 	public VoucherDTO bookDelivery(@RequestBody DeliveryDTO orderDto) {
-		return deliveryServive.bookDelivery(orderDto);
+		return deliveryService.bookDelivery(orderDto);
 	}
 }
