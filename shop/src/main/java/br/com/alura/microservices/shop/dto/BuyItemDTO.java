@@ -7,7 +7,7 @@ import lombok.ToString;
 @ToString
 public class BuyItemDTO {
 
-	private Long id;
+	private Long productId;
 	
 	private Integer amount;
 }

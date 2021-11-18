@@ -8,7 +8,7 @@ import lombok.ToString;
 public class AdressDTO {
 
 	private String road;
-	private Integer number;
+	private String number;
 	private String state;
 	
 }

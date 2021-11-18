@@ -47,7 +47,7 @@ public class OrderService {
 		
 		List<Long> productsIds = itens
 				.stream()
-				.map(item -> item.getId())
+				.map(item -> item.getProductId())
 				.collect(Collectors.toList());
 		
 		List<Product> orderProducts = productRepository.findByIdIn(productsIds);
@@ -57,7 +57,7 @@ public class OrderService {
 			.map(item -> {
 				Product product = orderProducts
 						.stream()
-						.filter(p -> p.getId() == item.getId())
+						.filter(p -> p.getId() == item.getProductId())
 						.findFirst().get();
 				
 				OrdersItem orderItem = new OrdersItem();
